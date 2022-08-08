@@ -23,7 +23,6 @@ class MainActivity2 : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         setContentView(R.layout.activity_main2)
 
         val bundle = intent.extras
-        val txtnbr = findViewById<TextView>(R.id.txtNbUsr)
 
         toolbar = findViewById<Toolbar>(R.id.toolbar);
         toolbar!!.title="App UTEQ"
