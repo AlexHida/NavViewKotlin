@@ -12,6 +12,9 @@ class MainActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setIcon(R.mipmap.ic_launcher)
     }
     fun botonEnviar(view: View){
         val intent = Intent(this, MainActivity2::class.java)
@@ -21,15 +24,25 @@ class MainActivity3 : AppCompatActivity() {
         val aux = findViewById<EditText>(R.id.txtUser).getText().toString()
         val aux2 = findViewById<EditText>(R.id.txtPass).getText().toString()
 
-        val userNb = "Alex"
-        val userPw = "1234"
+        val admin = "Alex"
+        val adminPw = "1234"
+
+        val user = "User"
+        val userPw = "4321"
 
         intent.putExtra("usr", txtUsr.text.toString())
         intent.putExtra("psw", txtPsw.text.toString())
 
-        if(aux == userNb && aux2 == userPw){
+        if(aux == admin && aux2 == adminPw){
+            intent.putExtra("usuario",txtUsr.text.toString())
+            intent.putExtra("rol","Admin")
             startActivity(intent)
-        }else{
+        } else if(aux == user && aux2 == userPw){
+            intent.putExtra("usuario",txtUsr.text.toString())
+            intent.putExtra("rol","User")
+            startActivity(intent)
+        }
+        else{
             Snackbar.make(
                 findViewById(R.id.txtUser),
                 "Usuario Incorrecto",

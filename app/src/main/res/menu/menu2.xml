@@ -3,15 +3,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_seccion_1"
-            android:icon="@drawable/iconmenu"
             android:title="UTEQ"/>
         <item
             android:id="@+id/menu_seccion_2"
-            android:icon="@drawable/iconmenu"
             android:title="CIENCIAS DE LA INGENIERÍA"/>
         <item
             android:id="@+id/menu_seccion_3"
-            android:icon="@drawable/iconmenu"
             android:title="INGENIERÍA DE SOFTWARE"/>
     </group>
 </menu>

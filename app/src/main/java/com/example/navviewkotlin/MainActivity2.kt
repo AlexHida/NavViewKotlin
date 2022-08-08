@@ -2,6 +2,7 @@ package com.example.navviewkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -33,6 +34,25 @@ class MainActivity2 : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.iconmenu)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
+        var navigationView:NavigationView=findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
+        var headerView: View=navigationView.getHeaderView(0)
+
+        var nameUsr:TextView=headerView.findViewById(R.id.txtNbUsr)
+        nameUsr.setText(bundle?.getString("usuario"))
+
+        var menu:Menu=navigationView.menu
+
+        if (bundle?.getString("rol")=="Admin"){
+            menu.add("AGREGAR MÓDULO")
+            menu.add("CONFIGURACIONES")
+        } else if(bundle?.getString("rol")=="User"){
+            menu.add("ÚLTIMOS EVENTOS")
+            menu.add("+ INFO")
+        }
 
     }
     fun botonSalir(view: View){
